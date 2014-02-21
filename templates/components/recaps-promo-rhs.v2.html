@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<htmL>
+<body>
+	<style>
+		.recap-poster-image {
+			width: 100%;
+		}
+		.recap-promo {
+			margin-bottom: 10px;
+		}
+		.recap-promo-show-name {
+			padding-bottom: 5px;
+		}
+		.recap-slot {
+			background-color: white;
+		}
+	</style>
+	<div class="component-wrapper four-col">
+		<div class="component auto-trail-list">
+			<div class="hd">
+				<h2>Television: Episode by episode</h2>
+			</div>
+
+			<div class="bd">
+				{% for show in shows %}
+				<ul class="list">
+					<h3 class="sub-heading"><a href="{{show.url}}">{{show.name}}</a></h3>
+
+					{% for recap in show.recaps %}
+					<li class="strapped">
+					<h4><a href="{{recap.webUrl}}">{{recap.fields.headline}}</a></h4>
+
+					<a class="link-image" href="{{recap.webUrl}}"><img src="{{recap.fields.thumbnail}}"></a>
+
+
+					<p>{{recap.fields.trailText}}</p>
+
+					</li>
+					{% endfor %}
+				</ul>
+				{% endfor %}
+
+			</div>
+		</div>
+	</div>
+	<div style="clear: both;"></div>
+</body>
+</htmL>
